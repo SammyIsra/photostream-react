@@ -1,0 +1,16 @@
+.photostream_photo {
+  max-width: 100%;
+  animation: picture-off-hover 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.photostream_photo:hover {
+  animation: picture-on-hover 0.2s;
+  animation-fill-mode: forwards;
+}
+
+img.photostream_photo {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}

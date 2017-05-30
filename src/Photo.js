@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Photo.css';
+
 //Functional component of a photo in the stream
 const Photo = (props) => {
 

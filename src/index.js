@@ -5,7 +5,7 @@ import Photostream from './Photostream';
 export default class extends Component {
   render() {
     return (
-      <Photostream />
+      <Photostream {...this.props}/>
     )
   }
 }

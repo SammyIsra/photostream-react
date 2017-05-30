@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Photo from './Photo';
 
 //Stylesheet
-import './PhotoStream.css'
+import './Photostream.css'
 
 class PhotoStream extends Component {
 
@@ -14,15 +14,15 @@ class PhotoStream extends Component {
     photos(){
         return this.props.imageList.map((item, index) => {
             if(typeof item === "string")
-                return ( <Photo key={} picture={item} /> );
+                return ( <Photo key={index} picture={item} /> );
             else
-                return ( <Photo key={} picture={item.image} altText={item.altText} /> );
+                return ( <Photo key={index} picture={item.image} altText={item.altText} /> );
         })
     }
 
     render() {
         return (
-            <div id="photos">
+            <div id="photostream">
                 {this.photos()}
             </div>
         );

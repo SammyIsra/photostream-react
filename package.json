@@ -1,7 +1,7 @@
 {
   "name": "react-photostream",
-  "version": "1.0.0",
-  "description": "react-photostream React component",
+  "version": "0.1.0",
+  "description": "Simple photo gallery display to be seen as a continuous stream of images, no space inbetween.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -28,10 +28,14 @@
     "react-dom": "15.5.4"
   },
   "author": "",
-  "homepage": "",
+  "homepage": "https://github.com/SammyIsra/photostream-react",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/SammyIsra/photostream-react",
   "keywords": [
-    "react-component"
+    "react-component",
+    "react",
+    "photowall",
+    "photostream",
+    "photocollage"
   ]
 }

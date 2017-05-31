@@ -12,6 +12,10 @@ class PhotoStream extends Component {
     // If we receive a string, use that as the picture.
     // If we receive an object {image, altText} then we pass those as the respective props
     photos(){
+
+        if(!this.props.imageList)
+            return (<span />);
+
         return this.props.imageList.map((item, index) => {
             if(typeof item === "string")
                 return ( <Photo key={index} picture={item} /> );

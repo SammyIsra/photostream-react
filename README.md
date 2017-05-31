@@ -7,14 +7,14 @@
 PhotoStream is a neat little React component to display a list of images in a compact fashion in columns, without gaps inbetween regardless of image size.
 
 ### To install:
-```
+```bash
 npm install --save react-photostream
 ```
 
 
 ### To use:
 
-```
+```javascript
 import React, {Component} from 'react';
 import Photostream from 'react-photostream';
 

@@ -30,7 +30,7 @@ describe('Photostream', () => {
     expect(photostream.find("Photo").length).toEqual(0);
   });
 
-  it('passes the picture value down to Photo as a props', function(){
+  it('passes the picture value down to Photo as a prop', function(){
     const images = [{image:"the_image", altText:"alt_text"}];
     const childPhoto = mount(<Photostream imageList={images} />).find("Photo").first();
     expect(childPhoto.props().picture).toEqual(images[0].image);
@@ -39,7 +39,7 @@ describe('Photostream', () => {
   it('passes the altText value down to Photo as a prop', function(){
     const images = [{image:"the_image", altText:"alt_text"}];
     const childPhoto = mount(<Photostream imageList={images} />).find("Photo").first();
-    expect(childPhoto.props().altText).toEqual(images[0].altTexts);
+    expect(childPhoto.props().altText).toEqual(images[0].altText);
   });
 
 });

@@ -15,9 +15,11 @@ after_success:
 
 deploy:
   - provider: surge
+    skip_cleanup: true
     project: ./demo/dist/
     domain: react-photostream.surge.sh
   - provider: npm
+    skip_cleanup: true
     api_key:  $NPM_TOKEN
 
 branches:

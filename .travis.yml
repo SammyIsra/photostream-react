@@ -17,13 +17,18 @@ after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
+#Jobs that run after the tests
 jobs:
   include:
+
+    #Build the project
     - stage: Build
       node_js: 8
       script: 
        - echo "Building project"
        - npm run build
+
+    #Deploy project to NPM
     - stage: Deploy NPM
       node_js: 8
       script: echo "Deploying project to NPM"
@@ -31,6 +36,8 @@ jobs:
         provider: npm
         skip_cleanup: true
         api_key:  $NPM_TOKEN
+
+    #Deploy project to Surge
     - stage: Deploy Surge
       node_js: 8
       script: echo "Deploying Demo to Surge"

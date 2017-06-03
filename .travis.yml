@@ -22,33 +22,19 @@ jobs:
   include:
 
     #Build the project
-    - stage: Build
+    - stage: Build and Deploy
       node_js: 8
       script: 
-       - echo "Building project"
-       - npm run build
-
-    #Deploy project to NPM
-    - stage: Deploy NPM
-      node_js: 8
-      script: echo "Deploying project to NPM"
+        - echo "Building project"
+        - npm run build
       deploy:
-        provider: npm
-        skip_cleanup: true
-        api_key:  $NPM_TOKEN
-
-    #Deploy project to Surge
-    - stage: Deploy Surge
-      node_js: 8
-      script: echo "Deploying Demo to Surge"
-      deploy:
-        provider: surge
-        skip_cleanup: true
-        project: ./demo/dist/
-        domain: react-photostream.surge.sh
-
-
-  - 
+        - provider: surge
+          skip_cleanup: true
+          project: ./demo/dist/
+          domain: react-photostream.surge.sh
+        - provider: npm
+          skip_cleanup: true
+          api_key:  $NPM_TOKEN
 
 branches:
   only:

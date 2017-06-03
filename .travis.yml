@@ -5,9 +5,12 @@ node_js:
   - 4
   - 6
   - 8
+  - node
 
 before_install:
   - npm install codecov.io coveralls nwb
+
+script: npm run build
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
@@ -21,6 +24,9 @@ deploy:
   - provider: npm
     skip_cleanup: true
     api_key:  $NPM_TOKEN
+
+
+
 
 branches:
   only:

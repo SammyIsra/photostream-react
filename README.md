@@ -6,6 +6,8 @@
 
 PhotoStream is a neat little React component to display a list of images in a compact fashion in columns, without gaps inbetween regardless of image size.
 
+You can see a small demo here http://react-photostream.surge.sh/ 
+
 ### To install:
 ```bash
 npm install --save react-photostream
@@ -59,5 +61,5 @@ To render a wall of photos, you just need to pass to `<PhotoStream />` a list of
 [npm-badge]: https://img.shields.io/npm/v/react-photostream.png?style=flat-square
 [npm]: https://www.npmjs.org/package/react-photostream
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+[coveralls-badge]: https://img.shields.io/coveralls/SammyIsra/photostream-react/master.png?style=flat-square
+[coveralls]: https://coveralls.io/github/SammyIsra/photostream-react

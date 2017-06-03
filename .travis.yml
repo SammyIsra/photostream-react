@@ -14,6 +14,7 @@ after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 deploy:
+  skip_cleanup: true
   - provider: surge
     project: ./demo/dist/
     domain: react-photostream.surge.sh

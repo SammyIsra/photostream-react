@@ -3,6 +3,8 @@ import {render} from 'react-dom'
 
 import PhotoStream from '../../src'
 
+import './index.css';
+
 class Demo extends Component {
   render() {
     let listOfSquareImages = [

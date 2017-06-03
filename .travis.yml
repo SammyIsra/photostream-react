@@ -4,6 +4,7 @@ language: node_js
 node_js:
   - 4
   - 6
+  - 8
 
 before_install:
   - npm install codecov.io coveralls
@@ -11,6 +12,15 @@ before_install:
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+deploy:
+  - provider: surge
+    project: ./demo/dist
+    domain: react-photostream.surge.sh
+  - provider: npm
+    api_key:  $NPM_TOKEN
+    on:
+      tags: true
 
 branches:
   only:

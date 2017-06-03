@@ -14,11 +14,12 @@ after_success:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 deploy:
-  skip_cleanup: true
   - provider: surge
+    skip_cleanup: true
     project: ./demo/dist/
     domain: react-photostream.surge.sh
   - provider: npm
+    skip_cleanup: true
     api_key:  $NPM_TOKEN
 
 branches:

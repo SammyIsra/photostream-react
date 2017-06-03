@@ -11,21 +11,37 @@ before_install:
   - npm install codecov.io coveralls nwb
 
 script: 
-  - npm run build
   - npm test --coverage
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
-deploy:
-  - provider: surge
-    skip_cleanup: true
-    project: ./demo/dist/
-    domain: react-photostream.surge.sh
-  - provider: npm
-    skip_cleanup: true
-    api_key:  $NPM_TOKEN
+jobs:
+  include:
+    - stage: Build
+      node_js: 8
+      script: 
+       - echo "Building project"
+       - npm run build
+    - stage: Deploy NPM
+      node_js: 8
+      script: echo "Deploying project to NPM"
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        api_key:  $NPM_TOKEN
+    - stage: Deploy Surge
+      node_js: 8
+      script: echo "Deploying Demo to Surge"
+      deploy:
+        provider: surge
+        skip_cleanup: true
+        project: ./demo/dist/
+        domain: react-photostream.surge.sh
+
+
+  - 
 
 branches:
   only:

@@ -10,7 +10,9 @@ node_js:
 before_install:
   - npm install codecov.io coveralls nwb
 
-script: npm run build
+script: 
+  - npm run build
+  - npm test --coverage
 
 after_success:
   - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js

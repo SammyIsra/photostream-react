@@ -15,12 +15,10 @@ after_success:
 
 deploy:
   - provider: surge
-    project: ./demo/dist
+    project: ./demo/dist/
     domain: react-photostream.surge.sh
   - provider: npm
     api_key:  $NPM_TOKEN
-    on:
-      tags: true
 
 branches:
   only:

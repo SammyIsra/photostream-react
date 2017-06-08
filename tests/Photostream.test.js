@@ -33,21 +33,28 @@ describe('Photostream', function() {
     expect(photostream.find("Photo").length).toEqual(listOfNoPhotos.length);
   });
 
-  it('(image is string) passes the picture value down to Photo as prop', function(){
-    mount(<Photostream imageList={listOfPhotosStrings} />).find("Photo").map(function(item, index){
-      expect(item.prop("picture")).toEqual(listOfPhotosStrings[index]);
-    })
+  //When we pass to Photostring a string
+  context('image is string', function(){
+    it('passes the picture value down to Photo as a prop', function(){
+      mount(<Photostream imageList={listOfPhotosStrings} />).find("Photo").map(function(item, index){
+        expect(item.prop("picture")).toEqual(listOfPhotosStrings[index]);
+      });
+    });
+  });
+
+  //When we pass to Photostream an object
+  context('image is object', function(){
+    it('passes the picture value down to Photo as a prop', function(){
+      const childPhoto = mount(<Photostream imageList={listOfPhotoObjects} />).find("Photo").first();
+      expect(childPhoto.prop("picture")).toEqual(listOfPhotoObjects[0].image);
+    });
+
+    it('passes the altText value down to Photo as a prop', function(){
+      const childPhoto = mount(<Photostream imageList={listOfPhotoObjects} />).find("Photo").first();
+      expect(childPhoto.prop("altText")).toEqual(listOfPhotoObjects[0].altText);
+    });
+
   })
-
-  it('(image is object) passes the picture value down to Photo as a prop', function(){
-    const childPhoto = mount(<Photostream imageList={listOfPhotoObjects} />).find("Photo").first();
-    expect(childPhoto.prop("picture")).toEqual(listOfPhotoObjects[0].image);
-  });
-
-  it('(image is object) passes the altText value down to Photo as a prop', function(){
-    const childPhoto = mount(<Photostream imageList={listOfPhotoObjects} />).find("Photo").first();
-    expect(childPhoto.prop("altText")).toEqual(listOfPhotoObjects[0].altText);
-  });
 
   it('Passes the onMouseEnter event handler to Photo', function(){
     const aPhoto = mount(<Photostream imageList={listOfPhotoObjects} eventHandlers={eventHandlers} />).find("Photo").first();

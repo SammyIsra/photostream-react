@@ -14,14 +14,21 @@ class PhotoStream extends Component {
     photos(){
 
         if(!this.props.imageList)
-            return (<span />);
+            return (<span className="empty-list" />);
 
-        return this.props.imageList.map((item, index) => {
-            if(typeof item === "string")
-                return ( <Photo key={index} picture={item} /> );
-            else
-                return ( <Photo key={index} picture={item.image} altText={item.altText} /> );
-        })
+        //Extract eventHandlers and imageList
+        const {eventHandlers, imageList} = this.props;
+
+        return imageList.map((item, index) => {
+
+            return (
+                <Photo key={index}
+                    picture={item.image || item} 
+                    altText={item.altText || undefined}
+                    eventHandlers={eventHandlers}
+                />
+            );
+        });
     }
 
     render() {

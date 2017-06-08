@@ -7,7 +7,7 @@ import './index.css';
 
 class Demo extends Component {
   render() {
-    let listOfSquareImages = [
+    const listOfSquareImages = [
       "http://lorempixel.com/400/400",
       "http://lorempixel.com/400/400",
       "http://lorempixel.com/400/400",
@@ -16,7 +16,7 @@ class Demo extends Component {
       "http://lorempixel.com/400/400"
     ];
 
-    let listOfNotSquareImages = [
+    const listOfNotSquareImages = [
       "http://lorempixel.com/400/450",
       "http://lorempixel.com/600/200",
       "http://lorempixel.com/500/350",
@@ -25,7 +25,7 @@ class Demo extends Component {
       "http://lorempixel.com/400/400"
     ];
 
-    let listOfImageObjects = [
+    const listOfImageObjects = [
       {image:"http://lorempixel.com/400/450", altText:"first one"},
       {image:"http://lorempixel.com/600/200", altText:"second one"},
       {image:"http://lorempixel.com/500/350", altText:"third one"},
@@ -34,12 +34,18 @@ class Demo extends Component {
       {image:"http://lorempixel.com/400/400", altText:"sixth one"}
     ];
 
+    const eventHandler = {
+      onMouseEnter:()=>{console.log("MouseEnter")},
+      onClick:()=>{console.log("Click")},
+      onMouseLeave:()=>{console.log("MouseLeave")}
+    }
+
     return (
       <div>
         <h1>react-photostream Demo</h1>
         <hr />
         <h2>List of Square Images</h2>
-        <PhotoStream imageList={listOfSquareImages} />
+        <PhotoStream imageList={listOfSquareImages}  eventHandlers={eventHandler} />
         <hr />
         <h2>List of Not Square Images</h2>
         <PhotoStream imageList={listOfNotSquareImages} />

@@ -64,7 +64,8 @@ import React from 'react';
 import Photostream from 'react-photostream';
 
 function Example(props){
-d
+
+  //When an image is clicked, the Component's image prop will be printed (which is the source of the image)
   const onClickEventHandler = function(event, self){
     console.log(self.props.image);
   }

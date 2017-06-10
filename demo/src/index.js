@@ -47,10 +47,10 @@ class Demo extends Component {
         <PhotoStream imageList={listOfSquareImages}  eventHandlers={eventHandler} />
         <hr />
         <h2>List of Not Square Images</h2>
-        <PhotoStream imageList={listOfNotSquareImages} eventHandlers={eventHandler} />
+        <PhotoStream imageList={listOfNotSquareImages} />
         <hr />
         <h2>List of image objects "{"{image, altText}"}"</h2>
-        <PhotoStream imageList={listOfImageObjects} />
+        <PhotoStream imageList={listOfImageObjects} eventHandlers={eventHandler} />
       </div>
     );
   }

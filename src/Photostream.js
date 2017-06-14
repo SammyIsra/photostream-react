@@ -25,7 +25,7 @@ class PhotoStream extends Component {
                 <Photo key={index}
                     picture={item.image || item} 
                     altText={item.altText || undefined}
-                    eventHandlers={eventHandlers}
+                    eventHandlers={eventHandlers || {} }
                 />
             );
         });

@@ -35,9 +35,8 @@ class Demo extends Component {
     ];
 
     const eventHandler = {
-      onMouseEnter:()=>{console.log("MouseEnter")},
-      onClick:()=>{console.log("Click")},
-      onMouseLeave:()=>{console.log("MouseLeave")}
+      onMouseEnter: (event, self)=>{console.log(self)},
+      onClick: (event, self)=>{console.log(self)}
     }
 
     return (
@@ -51,7 +50,7 @@ class Demo extends Component {
         <PhotoStream imageList={listOfNotSquareImages} />
         <hr />
         <h2>List of image objects "{"{image, altText}"}"</h2>
-        <PhotoStream imageList={listOfImageObjects} />
+        <PhotoStream imageList={listOfImageObjects} eventHandlers={eventHandler} />
       </div>
     );
   }

@@ -12,9 +12,10 @@
   ],
   "scripts": {
     "build": "nwb build-react-component",
+    "build:demo": "nwb build-demo",
     "clean": "nwb clean-module && nwb clean-demo",
-    "start": "nwb serve-react-demo",
-    "serve": "serve ./demo/dist",
+    "start": "nwb serve-react-demo --port 5000",
+    "serve": "nwb serve --port 5000",
     "deploy": "npm publish",
     "info": "npm info react-photostream",
     "test": "nwb test-react",
@@ -34,7 +35,6 @@
     "react-dom": "15.5.4",
     "react-router-dom": "4.1.1",
     "react-test-renderer": "15.5.4",
-    "serve": "5.2.2",
     "surge": "0.19.0",
     "whatwg-fetch": "2.0.3"
   },

@@ -50,7 +50,6 @@ class Home extends Component {
       <div>
         <h1>react-photostream Demo</h1>
         <hr />
-        <Link to='/stats'>stats</Link>
         <h2>List of Square Images</h2>
         <PhotoStream imageList={listOfSquareImages}  eventHandlers={eventHandler} />
         <hr />
@@ -65,17 +64,33 @@ class Home extends Component {
 }
 
 class Stats extends React.Component {
+
+
     
-    componentDidMount(){
-        const today = (new Date()).toISOString().split('T')[0];
-        const allDownloadsLink= `https://api.npmjs.org/downloads/point/2017-05-15:${today}/react-photostream`;
-    }
-    
-    render(){
-        return(
-            <div>ITEM</div>
-        );
-    }
+  componentDidMount(){
+    const today = (new Date()).toISOString().split('T')[0];
+    const allDownloadsLink= `https://api.npmjs.org/downloads/point/2017-05-15:${today}/react-photostream`;
+      
+    Promise.all([
+      fetch(allDownloadsLink).then(resp => resp.json()),
+    ])
+    .then((resolved)=>{
+      this.setState({
+        totalDownloads: resolved[0].downloads,
+        name: resolved[0].package
+      })
+    })
+  }
+
+  componentWillUpdate(){
+    console.log("Updating!!")
+  }
+
+  render(){
+      return(
+        <div>{(this.state)? `${this.state.name}: ${this.state.totalDownloads}` : null}</div>
+      );
+  }
 }
 
 function Demo(props){
@@ -89,4 +104,4 @@ function Demo(props){
   );
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo/>, document.querySelector('#demo'));

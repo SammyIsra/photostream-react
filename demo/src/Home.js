@@ -1,18 +1,6 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link 
-} from 'react-router-dom'
-import 'whatwg-fetch'; //fetch polyfill
+import React from 'react'
 
-
-import PhotoStream from '../../src';
-
-import './index.css';
-
-class Home extends Component {
+class Home extends React.Component {
   render() {
     const listOfSquareImages = [
       "http://lorempixel.com/400/400",
@@ -50,7 +38,6 @@ class Home extends Component {
       <div>
         <h1>react-photostream Demo</h1>
         <hr />
-        <Link to='/stats'>stats</Link>
         <h2>List of Square Images</h2>
         <PhotoStream imageList={listOfSquareImages}  eventHandlers={eventHandler} />
         <hr />
@@ -63,30 +50,3 @@ class Home extends Component {
     );
   }
 }
-
-class Stats extends React.Component {
-    
-    componentDidMount(){
-        const today = (new Date()).toISOString().split('T')[0];
-        const allDownloadsLink= `https://api.npmjs.org/downloads/point/2017-05-15:${today}/react-photostream`;
-    }
-    
-    render(){
-        return(
-            <div>ITEM</div>
-        );
-    }
-}
-
-function Demo(props){
-  return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Home} />
-        <Route path="/stats" component={Stats} />
-      </div>
-    </Router>
-  );
-}
-
-render(<Demo/>, document.querySelector('#demo'))
